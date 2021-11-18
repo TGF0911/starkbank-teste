@@ -1,6 +1,9 @@
 import stark from 'starkbank';
+import express from 'express';
 import InvoiceController from './controllers/InvoiceController';
 // import TransferController from './controllers/TransferController';
+
+const app = express();
 
 const user = new stark.Project({
   environment: 'sandbox',
@@ -13,17 +16,20 @@ stark.user = user;
 const invoice = new InvoiceController()
 // const transfer = new TransferController()
 
-let Hours = 0;
- const interval = setInterval(() => {
-  Hours++;
-  if(Hours  >= 8){
-    clearInterval(interval)
-  }
+app.post('/invoice-generate', () => {
 
-  invoice.createInvoices();
-} , 10800);
-
+  let Hours = 0;
+   const interval = setInterval(() => {
+    Hours++;
+    if(Hours  >= 8){
+      clearInterval(interval)
+    }
+    invoice.createInvoices();
+  } , 10800);
+});
 // transfer.createTransfers();
+
+app.listen(3333, () => console.log('Server started on port 3333'));
 
 
 

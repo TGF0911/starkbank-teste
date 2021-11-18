@@ -27,11 +27,9 @@ export default class InvoiceController {
           'value': 'Something'
         }]
       }
-
       invoices.push(new stark.Invoice(invoice));
     }
 
     return invoices
   }
-
 }

@@ -1,13 +1,12 @@
-import { randomInt } from '../utils/random';
-
 const stark = require('starkbank');
+
+import { randomInt } from '../utils/random';
 
 export default class TransferController {
   async createTransfers() {
     let transfers = [];
     let transfer = await stark.transfer.create([{
       amount: randomInt(100, 1000),
-      name: 'Random People',
       bankCode: '20018183',
       branchCode: '0001',
       accountNumber: '6341320293482496',
