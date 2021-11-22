@@ -1,14 +1,18 @@
 {
-  "name": "starkApp",
+  "name": "starkbank-teste",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "dev": "node src/server.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "starkbank": "^2.10.1"
   },
   "devDependencies": {
+    "@types/express": "^4.17.13",
     "nodemon": "^2.0.15"
   }
 }
